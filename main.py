@@ -6,6 +6,10 @@ from pathlib import Path
 database ="School_management_system.json"
 data ={"Students":[],"Teachers":[]}
 
+def save():
+    with open(database,"w") as f:
+        json.dump(data,f)
+
 if Path(database).exists():
     with open(database, 'r') as f:
         content = f.read()
