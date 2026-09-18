@@ -62,7 +62,7 @@ class Student(Person):
             if i['roll_no'] == roll_no:
                 print("Student allready exist!!")
                 return
-
+        data['Students'].append({'name': name, 'age': age, 'gender': gender, 'roll_no': roll_no, 'email': email,'grade' : {}})
 class Teachers(Person):
     def roles(self):
         return "Teacher"
@@ -87,8 +87,10 @@ class Teachers(Person):
 
         for i in data['Teacher']:
             if i['Emp_no'] == Emp_no:
-                print("Student allready exist!!")
+                print("Student already exist!!")
                 return
+
+        data['Teachers'].append({ 'name' : name,'age' : age,'gender' : gender,'Emp_no' : Emp_no,'email' : email,'subject':{}})
 
 
 print("Press 1 to Register student.")
