@@ -138,7 +138,7 @@ class Teachers(Person):
         save()
         print(f"{name} has been added to the database")
     def Details(self):
-        emp_no = (int(input("enter the roll no :-")))
+        emp_no = (int(input("enter the employer no :-")))
         for s in data["Teachers"]:
             if s['Emp_no'] == emp_no:
 
