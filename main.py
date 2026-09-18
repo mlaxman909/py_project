@@ -3,6 +3,15 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 
 
+database ="School_management_system.json"
+data ={"Students":[],"Teachers":[]}
+
+if Path(database).exists():
+    with open(database, 'r') as f:
+        content = f.read()
+        if content:
+            data=json.loads(content)
+
 
 
 
