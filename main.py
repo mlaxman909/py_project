@@ -72,7 +72,23 @@ class Student(Person):
         save()
         print(f"{name} has been added to the database")
     def Details(self):
-        pass
+        roll_no =(int(input("enter the roll no :-")))
+        for s in data["Students"]:
+            if s['roll_no'] == roll_no:
+                grade =s['grade']
+                avg = sum(grade.values())/len(grade) if grade else 0
+
+                print(f"Name : {s['name']}")
+                print(f"roll no : {s['roll_no']}")
+                print(f"avg : {avg}")
+                print(f"grade : {grade}")
+
+
+
+
+
+
+
     def add_grade(self):
         roll_no = int(input("Please enter your roll:-  "))
         subject = str(input("Please enter your subject:-  "))
@@ -122,7 +138,14 @@ class Teachers(Person):
         save()
         print(f"{name} has been added to the database")
     def Details(self):
-            pass
+        emp_no = (int(input("enter the roll no :-")))
+        for s in data["Teachers"]:
+            if s['Emp_no'] == emp_no:
+
+                print(f"Name : {s['name']}")
+                print(f"roll no : {s['Emp_no']}")
+                print(f"Subject : {s['subject']}")
+                print(f"gender : {s['gender']}")
 
 
 stud = Student()
