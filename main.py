@@ -63,6 +63,33 @@ class Student(Person):
                 print("Student allready exist!!")
                 return
 
+class Teachers(Person):
+    def roles(self):
+        return "Teacher"
+    def Register(self):
+        name = str(input("Please enter your name:-  "))
+        age = int(input("Please enter your age:-  "))
+        gender = str(input("Please enter your gender:-  "))
+        email = str(input("Please enter your email:-  "))
+        Emp_no = int(input("Please enter your Employee no:-  "))
+        if gender == "Male" or gender == "M" or gender == "m" or gender == "male":
+            return "Male"
+        elif gender == "Female" or gender == "F" or gender == "f" or gender == "female":
+            return "Female"
+        else:
+            print("Unknown")
+
+        if not Person.Validate_email(email):
+            print("Please enter a valid email address")
+
+        else:
+            return email
+
+        for i in data['Teacher']:
+            if i['Emp_no'] == Emp_no:
+                print("Student allready exist!!")
+                return
+
 
 print("Press 1 to Register student.")
 print("Press 2 to Register teacher.")
