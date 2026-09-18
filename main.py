@@ -52,7 +52,16 @@ class Student(Person):
         else:
             print("Unknown")
 
+        if not Person.Validate_email(email):
+            print("Please enter a valid email address")
 
+        else:
+            return email
+
+        for i in data['Student']:
+            if i['roll_no'] == roll_no:
+                print("Student allready exist!!")
+                return
 
 
 print("Press 1 to Register student.")
