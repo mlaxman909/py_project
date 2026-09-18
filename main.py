@@ -27,6 +27,23 @@ class Person(ABC):
         pass
 
 
+class Student(Person):
+    def roles(self):
+        return "Student"
+    def Register(self):
+        name = str(input("Please enter your name:-  "))
+        age = int(input("Please enter your age:-  "))
+        gender = str(input("Please enter your gender:-  "))
+        email = str(input("Please enter your email:-  "))
+        roll_no = int(input("Please enter your roll:-  "))
+        if gender == "Male" or gender == "M" or gender == "m" or gender == "male":
+            return "Male"
+        elif gender == "Female" or gender == "F" or gender == "f" or gender == "female":
+            return "Female"
+        else:
+            print("Unknown")
+
+
 
 
 print("Press 1 to Register student.")
