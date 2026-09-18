@@ -150,27 +150,32 @@ class Teachers(Person):
 
 stud = Student()
 teach = Teachers()
-print("Press 1 to Register student.")
-print("Press 2 to Register teacher.")
-print("Press 3 to add marks of student.")
-print("Press 4 for student details.")
-print("Press 5 for teacher details.")
+
+while True:
+    print("Press 1 to Register student.")
+    print("Press 2 to Register teacher.")
+    print("Press 3 to add marks of student.")
+    print("Press 4 for student details.")
+    print("Press 5 for teacher details.")
 
 
-user = int(input("Please Enter your choice(1 to 5):-  "))
+    user = int(input("Please Enter your choice(1 to 5):-  "))
 
 
 
-
-if user == 1:
-    stud.Register()
-elif user == 2:
-    teach.Register()
-elif user == 3:
-    stud.add_grade()
-elif user == 4:
-    stud.Details()
-elif user == 5:
-    teach.Details()
-else:
-    print("Please enter your choice between 1 to 5 :-")
+    if user  == 0:
+        print("thank you for visiting Goodbye!!!")
+        break
+    elif user == 1:
+        stud.Register()
+    elif user == 2:
+        teach.Register()
+    elif user == 3:
+        stud.add_grade()
+    elif user == 4:
+        stud.Details()
+    elif user == 5:
+        teach.Details()
+    else:
+        print("wrong input !!!! ")
+        print("Please enter your choice between 1 to 5 :-")
