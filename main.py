@@ -26,6 +26,15 @@ class Person(ABC):
     def Details(self):
         pass
 
+    @staticmethod
+    def Validate_email(email):
+        if "@" in email and "." in email:
+            return True
+
+        else:
+            return False
+
+
 
 class Student(Person):
     def roles(self):
