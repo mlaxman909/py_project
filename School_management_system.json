@@ -5,7 +5,9 @@
             "age": 21,
             "gender": "Male",
             "roll_no": 21,
-            "grade": {}
+            "grade": {
+                "maths": 87
+            }
         },
         {
             "name": "laxmna",
@@ -32,6 +34,14 @@
             "Emp_no": 34,
             "email": "laxmi@gmail.com",
             "subject": {}
+        },
+        {
+            "name": "laxmi",
+            "age": 54,
+            "gender": "Female",
+            "Emp_no": 42,
+            "email": "m.laxmi@gmail.com",
+            "subject": "maths"
         }
     ]
 }

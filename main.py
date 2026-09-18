@@ -73,6 +73,20 @@ class Student(Person):
         print(f"{name} has been added to the database")
     def Details(self):
         pass
+    def add_grade(self):
+        roll_no = int(input("Please enter your roll:-  "))
+        subject = str(input("Please enter your subject:-  "))
+        marks = int(input("Please enter your grade:-  "))
+
+        for i in data['Students']:
+            if i['roll_no'] == roll_no:
+                i['grade'][subject]=marks
+                save()
+                print("marks are add successfully !!! ")
+                return
+
+        print("student not found!!!")
+
 
 
 
@@ -84,6 +98,7 @@ class Teachers(Person):
         name = str(input("Please enter your name:-  "))
         age = int(input("Please enter your age:-  "))
         gender = str(input("Please enter your gender:-  "))
+        subject = str(input("Please enter your subject:-  "))
 
         if gender == "Male" or gender == "M" or gender == "m" or gender == "male":
             gender= "Male"
@@ -103,7 +118,7 @@ class Teachers(Person):
                 print("Teacher already exist!!")
                 return
 
-        data['Teachers'].append({ 'name' : name,'age' : age,'gender' : gender,'Emp_no' : emp_no,'email' : email,'subject':{}})
+        data['Teachers'].append({ 'name' : name,'age' : age,'gender' : gender,'Emp_no' : emp_no,'email' : email,'subject':subject})
         save()
         print(f"{name} has been added to the database")
     def Details(self):
@@ -129,10 +144,10 @@ if user == 1:
 elif user == 2:
     teach.Register()
 elif user == 3:
-    pass
+    stud.add_grade()
 elif user == 4:
-    pass
+    stud.Details()
 elif user == 5:
-    pass
+    teach.Details()
 else:
     print("Please enter your choice between 1 to 5 :-")
