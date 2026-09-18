@@ -14,6 +14,20 @@ if Path(database).exists():
 
 
 
+class Person(ABC):
+
+    @abstractmethod
+    def roles(self):
+        pass
+    @abstractmethod
+    def Register(self):
+        pass
+    @abstractmethod
+    def Details(self):
+        pass
+
+
+
 
 print("Press 1 to Register student.")
 print("Press 2 to Register teacher.")
