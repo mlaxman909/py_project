@@ -6,15 +6,17 @@ from pathlib import Path
 database ="School_management_system.json"
 data ={"Students":[],"Teachers":[]}
 
-def save():
-    with open(database,"w") as f:
-        json.dump(data,f)
+
 
 if Path(database).exists():
     with open(database, 'r') as f:
         content = f.read()
         if content:
             data=json.loads(content)
+
+def save():
+    with open(database,"w") as f:
+        json.dump(data,f,indent=4)
 
 
 
@@ -47,26 +49,34 @@ class Student(Person):
         name = str(input("Please enter your name:-  "))
         age = int(input("Please enter your age:-  "))
         gender = str(input("Please enter your gender:-  "))
-        email = str(input("Please enter your email:-  "))
-        roll_no = int(input("Please enter your roll:-  "))
         if gender == "Male" or gender == "M" or gender == "m" or gender == "male":
-            return "Male"
+           gender ="Male"
         elif gender == "Female" or gender == "F" or gender == "f" or gender == "female":
-            return "Female"
+            gender ="Female"
         else:
             print("Unknown")
 
+        email = str(input("Please enter your email:-  "))
         if not Person.Validate_email(email):
             print("Please enter a valid email address")
+            return
 
-        else:
-            return email
 
-        for i in data['Student']:
+
+        roll_no = int(input("Please enter your roll:-  "))
+        for i in data['Students']:
             if i['roll_no'] == roll_no:
-                print("Student allready exist!!")
+                print("Student already exist!!")
                 return
-        data['Students'].append({'name': name, 'age': age, 'gender': gender, 'roll_no': roll_no, 'email': email,'grade' : {}})
+        data['Students'].append({'name': name, 'age': age,'email':email, 'gender': gender, 'roll_no': roll_no,'grade' : {}})
+        save()
+        print(f"{name} has been added to the database")
+    def Details(self):
+        pass
+
+
+
+
 class Teachers(Person):
     def roles(self):
         return "Teacher"
@@ -74,29 +84,34 @@ class Teachers(Person):
         name = str(input("Please enter your name:-  "))
         age = int(input("Please enter your age:-  "))
         gender = str(input("Please enter your gender:-  "))
-        email = str(input("Please enter your email:-  "))
-        Emp_no = int(input("Please enter your Employee no:-  "))
+
         if gender == "Male" or gender == "M" or gender == "m" or gender == "male":
-            return "Male"
+            gender= "Male"
         elif gender == "Female" or gender == "F" or gender == "f" or gender == "female":
-            return "Female"
+            gender ="Female"
         else:
             print("Unknown")
 
+
+        email = str(input("Please enter your email:-  "))
         if not Person.Validate_email(email):
             print("Please enter a valid email address")
-
-        else:
-            return email
-
-        for i in data['Teacher']:
-            if i['Emp_no'] == Emp_no:
-                print("Student already exist!!")
+            return
+        emp_no = int(input("Please enter your Employee no:-  "))
+        for i in data['Teachers']:
+            if i['Emp_no'] == emp_no:
+                print("Teacher already exist!!")
                 return
 
-        data['Teachers'].append({ 'name' : name,'age' : age,'gender' : gender,'Emp_no' : Emp_no,'email' : email,'subject':{}})
+        data['Teachers'].append({ 'name' : name,'age' : age,'gender' : gender,'Emp_no' : emp_no,'email' : email,'subject':{}})
+        save()
+        print(f"{name} has been added to the database")
+    def Details(self):
+            pass
 
 
+stud = Student()
+teach = Teachers()
 print("Press 1 to Register student.")
 print("Press 2 to Register teacher.")
 print("Press 3 to add marks of student.")
@@ -110,9 +125,9 @@ user = int(input("Please Enter your choice(1 to 5):-  "))
 
 
 if user == 1:
-    pass
+    stud.Register()
 elif user == 2:
-    pass
+    teach.Register()
 elif user == 3:
     pass
 elif user == 4:
